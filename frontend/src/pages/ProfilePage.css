@@ -1,0 +1,38 @@
+.profile-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.profile-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-container p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.button-group button {
+  padding: 0.5rem 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  background-color: #1565c0;
+}

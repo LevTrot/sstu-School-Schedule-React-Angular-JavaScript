@@ -1,0 +1,45 @@
+.schedule-container {
+  padding: 20px;
+}
+
+.schedule-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.schedule-form input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.schedule-form button {
+  background-color: #007bff;
+  border: none;
+  height: 30px;
+  padding: 5px 12px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: -2px;
+}
+
+.schedule-form button:hover {
+  background-color: #0056b3;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 1px solid #ccc; 
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
