@@ -1,0 +1,56 @@
+<div class="management-container">
+  <h2>Teachers Management</h2>
+
+  <div class="form-row">
+    <input [(ngModel)]="newTeacher.name" placeholder="Name" required>
+    <input [(ngModel)]="newTeacher.email" placeholder="Email" required>
+    <input [(ngModel)]="newTeacher.password" placeholder="Password" required type="password">
+    <select [(ngModel)]="newTeacher.role">
+      <option value="teacher">Teacher</option>
+      <option value="admin">Admin</option>
+    </select>
+    <button (click)="createTeacher()">Add</button>
+  </div>
+
+  <p class="error" *ngIf="error">{{ error }}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of teachers">
+        <td *ngIf="editingId !== teacher.id">{{ teacher.name }}</td>
+        <td *ngIf="editingId === teacher.id">
+          <input [(ngModel)]="editedTeacher.name">
+        </td>
+
+        <td *ngIf="editingId !== teacher.id">{{ teacher.email }}</td>
+        <td *ngIf="editingId === teacher.id">
+          <input [(ngModel)]="editedTeacher.email">
+        </td>
+
+        <td *ngIf="editingId !== teacher.id">{{ teacher.role }}</td>
+        <td *ngIf="editingId === teacher.id">
+          <select [(ngModel)]="editedTeacher.role">
+            <option value="teacher">Teacher</option>
+            <option value="admin">Admin</option>
+          </select>
+        </td>
+
+        <td>
+          <button *ngIf="editingId !== teacher.id" (click)="startEdit(teacher)">Edit</button>
+          <button *ngIf="editingId === teacher.id" (click)="updateTeacher(teacher.id)">Save</button>
+          <button *ngIf="editingId === teacher.id" (click)="cancelEdit()">Cancel</button>
+          <button (click)="deleteTeacher(teacher.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

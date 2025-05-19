@@ -1,0 +1,56 @@
+<div class="schedule-container">
+    <div class="form-container">
+    <label>Класс:</label>
+    <input [(ngModel)]="selectedClass" />
+    <button (click)="loadSchedulesForClass()">Показать расписание</button>
+    </div>
+
+    <br />
+
+    <table>
+    <thead>
+        <tr>
+        <th>Время</th>
+        <th *ngFor="let day of days">{{ day }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let time of times">
+        <td>{{ time.start }} - {{ time.end }}</td>
+        <td *ngFor="let day of days">
+            <div *ngIf="scheduleTable[day][time.start].busy">
+            {{ scheduleTable[day][time.start].subject_name }}<br />
+            {{ scheduleTable[day][time.start].teacher_name }}
+            </div>
+            <div *ngIf="!scheduleTable[day][time.start].busy">
+            <select [(ngModel)]="scheduleTable[day][time.start].subject_id">
+                <option [value]="null" disabled selected>Выбрать предмет</option>
+                <option *ngFor="let s of subjects" [value]="s.id">
+                {{ s.name }}
+                </option>
+            </select>
+            <br />
+            <select [(ngModel)]="scheduleTable[day][time.start].teacher_id">
+                <option [value]="null" disabled selected>Выбрать учителя</option>
+                <option *ngFor="let t of teachers" [value]="t.id">
+                {{ t.name }}
+                </option>
+            </select>
+            </div>
+        </td>
+        </tr>
+    </tbody>
+    </table>
+
+    <br />
+    <button (click)="submitSchedule()">Сохранить расписание</button>
+
+    <hr />
+
+    <h3>Уроки</h3>
+    <div *ngFor="let entry of submittedSchedules">
+    {{ entry.day_of_week }} {{ entry.start_time }} – {{ entry.subject_name }}
+    ({{ entry.teacher_name }})
+    <button (click)="deleteSchedule(entry.id)">Удалить</button>
+    </div>
+</div>

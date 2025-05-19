@@ -1,0 +1,61 @@
+<h2>Student Management</h2>
+
+<div class="form-row">
+  <input [(ngModel)]="newStudent.name" placeholder="Name" required>
+  <input [(ngModel)]="newStudent.email" placeholder="Email" required>
+  <input [(ngModel)]="newStudent.password" placeholder="Password" required type="password">
+  <input [(ngModel)]="newStudent.studentClass" placeholder="Class" required>
+
+  <select [(ngModel)]="newStudent.role">
+    <option value="student">Student</option>
+    <option value="admin">Admin</option>
+  </select>
+
+  <button (click)="addStudent()">Add</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Class</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td *ngIf="editingId !== student.id">{{ student.name }}</td>
+      <td *ngIf="editingId === student.id">
+        <input [(ngModel)]="editedStudent.name">
+      </td>
+
+      <td *ngIf="editingId !== student.id">{{ student.email }}</td>
+      <td *ngIf="editingId === student.id">
+        <input [(ngModel)]="editedStudent.email">
+      </td>
+
+      <td *ngIf="editingId !== student.id">{{ student.class }}</td>
+      <td *ngIf="editingId === student.id">
+        <input [(ngModel)]="editedStudent.class">
+      </td>
+
+      <td *ngIf="editingId !== student.id">{{ student.role }}</td>
+      <td *ngIf="editingId === student.id">
+        <select [(ngModel)]="editedStudent.role">
+          <option value="student">Student</option>
+          <option value="admin">Admin</option>
+        </select>
+      </td>
+
+      <td>
+        <button *ngIf="editingId !== student.id" (click)="startEdit(student)">Edit</button>
+        <button *ngIf="editingId === student.id" (click)="updateStudent(student.id)">Save</button>
+        <button *ngIf="editingId === student.id" (click)="cancelEdit()">Cancel</button>
+        <button (click)="deleteStudent(student.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

@@ -1,0 +1,18 @@
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <h2>Админ-панель</h2>
+    <nav>
+      <a routerLink="students" routerLinkActive="active">Ученики</a>
+      <a routerLink="teachers" routerLinkActive="active">Преподаватели</a>
+      <a routerLink="subjects" routerLinkActive="active">Предметы</a>
+      <a routerLink="schedule" routerLinkActive="active">Расписание</a>
+      <a routerLink="grades" routerLinkActive="active">Оценки</a>
+      <button (click)="logout()">Выйти</button>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+

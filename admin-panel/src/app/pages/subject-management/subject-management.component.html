@@ -1,0 +1,32 @@
+<div class="subjects-container">
+  <h2>Subjects Management</h2>
+
+  <form (ngSubmit)="addSubject()" #subjectForm="ngForm" class="form-container">
+    <input type="text" name="name" [(ngModel)]="newSubject.name" placeholder="Subject Name" required />
+    <button type="submit">Add Subject</button>
+  </form>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let subject of subjects">
+      <td *ngIf="editId !== subject.id">{{ subject.name }}</td>
+      <td *ngIf="editId === subject.id">
+        <input [(ngModel)]="subject.name" type="text" />
+      </td>
+      <td>
+        <button *ngIf="editId !== subject.id" (click)="enableEdit(subject)">Edit</button>
+        <button *ngIf="editId === subject.id" (click)="saveSubject(subject)">Save</button>
+        <button (click)="deleteSubject(subject.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+

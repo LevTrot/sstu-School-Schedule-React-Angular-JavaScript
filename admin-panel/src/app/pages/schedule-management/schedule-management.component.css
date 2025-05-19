@@ -1,0 +1,73 @@
+.schedule-container {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.form-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  min-width: 100px;
+}
+
+select {
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+  width: 100%;
+  font-size: 14px;
+}
+
+button {
+  background-color: #007bff;
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+h3 {
+  margin-top: 30px;
+  color: #333;
+}
+
+.lesson-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}

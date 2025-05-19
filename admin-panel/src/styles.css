@@ -1,0 +1,19 @@
+.admin-container {
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+.admin-nav {
+  display: flex;
+  gap: 1rem;
+  background: #eee;
+  padding: 1rem;
+}
+.admin-nav a {
+  text-decoration: none;
+  color: #333;
+}
+.admin-nav a.active {
+  font-weight: bold;
+}
+

@@ -1,0 +1,12 @@
+<div class="login-container">
+  <h2>Вход в админ-панель</h2>
+
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+
+  <input [(ngModel)]="name" name="name" placeholder="Имя" required>
+  <input [(ngModel)]="password" name="password" placeholder="Пароль" type="password" required>
+
+  <button (click)="login()">Войти</button>
+</div>
+
+
